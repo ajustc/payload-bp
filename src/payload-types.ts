@@ -78,6 +78,7 @@ export interface Config {
     recycles: Recycle;
     'plastic-types': PlasticType;
     'product-requests': ProductRequest;
+    recommendations: Recommendation;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -96,6 +97,7 @@ export interface Config {
     recycles: RecyclesSelect<false> | RecyclesSelect<true>;
     'plastic-types': PlasticTypesSelect<false> | PlasticTypesSelect<true>;
     'product-requests': ProductRequestsSelect<false> | ProductRequestsSelect<true>;
+    recommendations: RecommendationsSelect<false> | RecommendationsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -506,6 +508,20 @@ export interface ProductRequest {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "recommendations".
+ */
+export interface Recommendation {
+  id: number;
+  article?: (number | null) | Article;
+  product?: (number | null) | Product;
+  recommendationArticle?: (number | null) | Article;
+  recommendationProduct?: (number | null) | Product;
+  sorting?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -571,6 +587,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'product-requests';
         value: number | ProductRequest;
+      } | null)
+    | ({
+        relationTo: 'recommendations';
+        value: number | Recommendation;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -797,6 +817,19 @@ export interface ProductRequestsSelect<T extends boolean = true> {
   address?: T;
   notes?: T;
   recipient?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "recommendations_select".
+ */
+export interface RecommendationsSelect<T extends boolean = true> {
+  article?: T;
+  product?: T;
+  recommendationArticle?: T;
+  recommendationProduct?: T;
+  sorting?: T;
   updatedAt?: T;
   createdAt?: T;
 }

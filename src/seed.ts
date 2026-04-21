@@ -16,6 +16,29 @@ const seed = async (): Promise<void> => {
   await payload.create({ collection: 'plastic-types', data: { name: 'Polypropylene' } })
   await payload.create({ collection: 'plastic-types', data: { name: 'ABS' } })
 
+  // Recommendations
+  const articles = await payload.find({ collection: 'articles' })
+  const products = await payload.find({ collection: 'products' })
+
+  if (articles.docs.length >= 2) {
+    await payload.create({
+      collection: 'recommendations',
+      data: { article: articles.docs[0].id, recommendationArticle: articles.docs[1].id, sorting: 1 },
+    })
+  }
+  if (products.docs.length >= 1 && articles.docs.length >= 1) {
+    await payload.create({
+      collection: 'recommendations',
+      data: { article: articles.docs[0].id, recommendationProduct: products.docs[0].id, sorting: 1 },
+    })
+  }
+  if (products.docs.length >= 2) {
+    await payload.create({
+      collection: 'recommendations',
+      data: { product: products.docs[0].id, recommendationProduct: products.docs[1].id, sorting: 1 },
+    })
+  }
+
   console.log('Done!')
   process.exit(0)
 }

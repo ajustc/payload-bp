@@ -15,6 +15,12 @@
 - `PlasticTypes` - Plastic material types
 - `ProductRequests` - Product inquiry forms (public submission)
 
+### Phase 3: Recommendations System
+- `Recommendations` - Links content for cross-promotion
+  - Article → Article (related articles)
+  - Article → Product (products mentioned in articles)
+  - Product → Product (alternative/similar products)
+
 ## Globals Created
 
 - `Config` - Site branding, colors, page titles/descriptions

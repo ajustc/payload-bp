@@ -17,6 +17,7 @@ import { Customers } from './collections/Customers'
 import { Recycles } from './collections/Recycles'
 import { PlasticTypes } from './collections/PlasticTypes'
 import { ProductRequests } from './collections/ProductRequests'
+import { Recommendations } from './collections/Recommendations'
 
 import { Config } from './globals/Config'
 import { Hero } from './globals/Hero'
@@ -46,6 +47,7 @@ export default buildConfig({
     Recycles,
     PlasticTypes,
     ProductRequests,
+    Recommendations,
   ],
   globals: [
     Config,
