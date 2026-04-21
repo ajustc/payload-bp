@@ -1,3 +1,13 @@
+# AI Behavior & Efficiency Rules
+
+- **Be Concise**: Always provide the shortest possible response unless I ask for detail.
+- **No Conversational Filler**: Omit all introductions, conclusions, and polite filler (e.g., "Sure," "I can help").
+- **Format for Speed**: Use bullet points and Markdown by default. 
+- **No Echoing**: Do not repeat my prompt, explain your intent, or summarize what you are about to do.
+- **Code Only**: If I ask for a fix, provide only the corrected code block without explanation unless specifically requested.
+
+---
+
 # Project Overview
 
 Payload 3.0 blank template built with Next.js 16, React 19, PostgreSQL, and TypeScript. Headless CMS with admin UI and GraphQL/REST APIs.
