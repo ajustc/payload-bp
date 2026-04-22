@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --font-mono: 'Roboto Mono', monospace;
 }
@@ -9,8 +11,6 @@
 html {
   font-size: 18px;
   line-height: 32px;
-
-  background: rgb(0, 0, 0);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -24,14 +24,8 @@ body {
   font-family: system-ui;
   font-size: 18px;
   line-height: 32px;
-
   margin: 0;
-  color: rgb(1000, 1000, 1000);
-
-  @media (max-width: 1024px) {
-    font-size: 15px;
-    line-height: 24px;
-  }
+  color: rgb(0, 0, 0);
 }
 
 img {
@@ -41,124 +35,105 @@ img {
 }
 
 h1 {
-  margin: 40px 0;
-  font-size: 64px;
-  line-height: 70px;
+  font-size: 2.5rem;
   font-weight: bold;
+  margin: 2.5rem 0;
+}
 
-  @media (max-width: 1024px) {
-    margin: 24px 0;
-    font-size: 42px;
-    line-height: 42px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 38px;
-    line-height: 38px;
-  }
-
-  @media (max-width: 400px) {
-    font-size: 32px;
-    line-height: 32px;
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
   }
 }
 
 p {
-  margin: 24px 0;
-
-  @media (max-width: 1024px) {
-    margin: calc(var(--base) * 0.75) 0;
-  }
+  margin: 1.5rem 0;
 }
 
 a {
   color: currentColor;
-
-  &:focus {
-    opacity: 0.8;
-    outline: none;
-  }
-
-  &:active {
-    opacity: 0.7;
-    outline: none;
-  }
 }
 
-svg {
-  vertical-align: middle;
+/* Hero Section */
+.hero-section {
+  @apply bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-24;
 }
 
-.home {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-  padding: 45px;
-  max-width: 1024px;
-  margin: 0 auto;
-  overflow: hidden;
+.hero-content h1 {
+  @apply text-5xl font-bold mb-4 text-center;
+}
 
-  @media (max-width: 400px) {
-    padding: 24px;
-  }
+/* Cards */
+.card {
+  @apply border border-gray-200 rounded-lg overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg;
+}
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
+.card-link {
+  @apply text-inherit block;
+}
 
-    h1 {
-      text-align: center;
-    }
-  }
+.card-image {
+  @apply w-full h-48 object-cover;
+}
 
-  .links {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.card-content {
+  @apply p-6;
+}
 
-    a {
-      text-decoration: none;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-    }
+.card-title {
+  @apply text-xl font-bold mb-2;
+}
 
-    .admin {
-      color: rgb(0, 0, 0);
-      background: rgb(1000, 1000, 1000);
-      border: 1px solid rgb(0, 0, 0);
-    }
+.card-description {
+  @apply text-gray-600 text-sm line-clamp-3;
+}
 
-    .docs {
-      color: rgb(1000, 1000, 1000);
-      background: rgb(0, 0, 0);
-      border: 1px solid rgb(1000, 1000, 1000);
-    }
-  }
+/* Buttons */
+.btn {
+  @apply inline-block px-6 py-3 rounded-lg text-center font-medium transition-colors duration-200;
+}
 
-  .footer {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.btn-primary {
+  @apply bg-indigo-500 text-white hover:bg-indigo-600;
+}
 
-    @media (max-width: 1024px) {
-      flex-direction: column;
-      gap: 6px;
-    }
+.btn-outline {
+  @apply border-2 border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white;
+}
 
-    p {
-      margin: 0;
-    }
+/* Sections */
+section {
+  @apply py-16;
+}
 
-    .codeLink {
-      text-decoration: none;
-      padding: 0 0.5rem;
-      background: rgb(60, 60, 60);
-      border-radius: 4px;
-    }
-  }
+.section-header {
+  @apply text-center mb-12;
+}
+
+.section-header h2 {
+  @apply text-4xl font-bold mb-2;
+}
+
+/* Forms */
+.form-group {
+  @apply mb-4;
+}
+
+.form-group label {
+  @apply block mb-2 font-medium;
+}
+
+.form-group input,
+.form-group textarea {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg;
+}
+
+/* Detail Pages */
+.page-header {
+  @apply text-center mb-12;
+}
+
+.article-content,
+.product-description {
+  @apply max-w-3xl mx-auto text-lg leading-relaxed;
 }
